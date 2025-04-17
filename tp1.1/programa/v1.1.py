@@ -60,5 +60,5 @@ def main():
     frecuencias_relativas = simular_ruleta(args.c, args.n, args.e)
     mostrar_graficos(frecuencias_relativas, args.e)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
