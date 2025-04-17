@@ -1,1 +1,149 @@
+\documentclass{article}
 
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{float}
+\graphicspath{{./images/}}
+
+\title{Simulación computacional de una ruleta: análisis de comportamiento aleatorio}
+
+
+\author{
+Mateo Quaglia (51742) \\
+\And
+Munné Facundo (50361) \\
+\And
+Miguel Cabanellas (51537) \\
+\And
+Colman Geronimo (51358) \\
+\And
+Degiusti Florencia (51794) \\
+\And
+David Delgado (50552) \\
+\and
+Universidad Tecnológica Nacional - FRRO\\
+\texttt{} \\
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Este trabajo presenta una simulación computacional de una ruleta europea con el fin de estudiar su comportamiento aleatorio. Se desarrolló un programa en Python 3... que permite generar tiradas aleatorias, analizar los resultados estadísticamente y graficarlos. A través de múltiples corridas, se observa la tendencia de los resultados hacia una distribución uniforme, y se analizan medidas como la frecuencia relativa, media y varianza para validar el modelo.
+\end{abstract}
+
+\keywords{Simulación \and Ruleta \and Python \and Distribución uniforme \and Probabilidad}
+
+
+\section{Introducción}
+
+La ruleta es uno de los juegos de azar más emblemáticos y extendidos en los casinos modernos. Su mecanismo de funcionamiento, basado en el giro de una rueda numerada, permite representar de manera concreta conceptos fundamentales de probabilidad y aleatoriedad. Esta característica la convierte en un objeto de estudio ideal para introducir nociones básicas de simulación computacional en el ámbito académico.
+
+Históricamente, la ruleta ha evolucionado desde versiones rudimentarias utilizadas como entretenimiento social hasta modelos matemáticamente diseñados para ofrecer márgenes de ganancia al establecimiento. La ruleta europea, compuesta por los números del 0 al 36, ofrece una probabilidad uniforme de aparición de cada número en condiciones ideales, y es la que se ha tomado como referencia para este trabajo.
+
+En el contexto de la simulación por computadora, modelar una ruleta implica generar secuencias de valores pseudoaleatorios que representen los posibles resultados de cada tirada. A través del análisis estadístico de dichos valores es posible observar el comportamiento emergente del sistema y evaluar su ajuste a una distribución uniforme teórica.
+
+Este trabajo propone el desarrollo de un simulador de ruleta en lenguaje Python, con capacidad de ejecutar múltiples corridas experimentales parametrizadas desde línea de comandos. La finalidad es observar la convergencia estadística de los resultados obtenidos, mediante el análisis de medidas como la media, la varianza, el desvío estándar y la frecuencia relativa de aparición de un número seleccionado. La generación de gráficos complementará el análisis, permitiendo visualizar la distribución de resultados y la estabilidad del sistema a medida que se incrementa el número de tiradas.
+
+De esta manera, la presente investigación no sólo busca validar el comportamiento esperado de un sistema aleatorio ideal, sino también introducir al estudiante en el diseño y ejecución de simulaciones con soporte estadístico, fundamento clave en diversas disciplinas científicas y tecnológicas.
+
+
+
+\\section{Metodología}
+
+Para llevar adelante esta simulación se implementó un programa en Python 3.x que replica el funcionamiento de una ruleta europea. El código fue desarrollado haciendo uso de los módulos estándar \texttt{random}, \texttt{matplotlib.pyplot} y \texttt{statistics}, y puede ser ejecutado desde consola mediante parámetros configurables.
+
+\subsection{Parámetros de simulación}
+
+El programa recibe los siguientes argumentos por consola:
+
+\begin{itemize}
+    \item \texttt{-c} (\textbf{corridas}): cantidad de repeticiones completas del experimento.
+    \item \texttt{-n} (\textbf{tiradas}): cantidad de lanzamientos de ruleta por cada corrida.
+    \item \texttt{-e} (\textbf{número elegido}): número del 0 al 36 cuya aparición será analizada con especial atención.
+\end{itemize}
+
+Por ejemplo, el comando:
+
+\begin{center}
+\texttt{python ruleta.py -c 10 -n 1000 -e 17}
+\end{center}
+
+realiza 10 corridas de 1000 tiradas cada una, analizando la frecuencia relativa del número 17.
+
+\subsection{Proceso de simulación}
+
+Cada tirada consiste en la selección aleatoria de un número entero entre 0 y 36 utilizando la función \texttt{random.randint()}. Los resultados se almacenan en listas y se procesan para generar:
+
+\begin{itemize}
+    \item Frecuencia absoluta de aparición de cada número.
+    \item Frecuencia relativa del número elegido por corrida.
+    \item Cálculo de medidas estadísticas:
+    \begin{itemize}
+        \item \textbf{Media} de los números obtenidos.
+        \item \textbf{Varianza} de los valores por corrida.
+        \item \textbf{Desvío estándar} para observar la dispersión.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Visualización de datos}
+
+Los resultados se representan gráficamente mediante \texttt{matplotlib}, generando como mínimo:
+
+\begin{itemize}
+    \item Gráficos de barras con la frecuencia absoluta de los números en cada corrida.
+    \item Gráfico de línea que muestra la evolución de la frecuencia relativa del número elegido a lo largo de las corridas.
+\end{itemize}
+
+Todos los gráficos se guardan automáticamente en una carpeta \texttt{images/}, para su posterior inclusión en el documento final.
+
+\subsection{Resumen estadístico}
+
+Finalmente, el programa imprime un resumen general que incluye:
+
+\begin{itemize}
+    \item Promedio de veces que salió el número elegido.
+    \item Promedio de la varianza entre corridas.
+    \item Promedio del desvío estándar entre corridas.
+\end{itemize}
+
+Este resumen sirve como base para las conclusiones generales del experimento y permite evaluar la consistencia del modelo estadístico utilizado.
+
+
+\section{Resultados}
+
+A continuación se muestran algunos de los gráficos obtenidos en distintas simulaciones:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{frecuencia_tirada.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{comparacion_corridas.png}
+    \caption{}
+\end{figure}
+
+(Hay que poner mas graficos)
+
+\section{Conclusiones}
+
+
+
+\section*{Referencias}
+
+\begin{itemize}
+
+\end{itemize}
+
+\end{document}
