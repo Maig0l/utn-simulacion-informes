@@ -42,7 +42,7 @@ def simular_ruleta(corridas, tiradas_por_corrida, numero_elegido):
 
 def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
     import os 
-    output_dir = os.path.join("..","informe","img")
+    output_dir = os.path.join("images")
     os.makedirs(output_dir, exist_ok=True)
 
 
