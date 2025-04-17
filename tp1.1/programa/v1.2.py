@@ -41,6 +41,11 @@ def simular_ruleta(corridas, tiradas_por_corrida, numero_elegido):
     return promedio_fr, promedio_vp, promedio_vd, promedio_vv, tiradas_por_corrida
 
 def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
+    import os 
+    output_dir = os.path.join("..","informe","img")
+    os.makedirs(output_dir, exist_ok=True)
+
+
     n = list(range(1, tiradas_totales + 1))
     
     fre_esperada = 1 / 37
@@ -58,7 +63,7 @@ def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('frecuencia_relativa.png')
+    plt.savefig(os.path.join(output_dir, 'frecuencia_relativa.png'))
     plt.close()
 
     # Promedio
@@ -71,7 +76,7 @@ def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('promedio.png')
+    plt.savefig(os.path.join(output_dir, 'promedio.png'))
     plt.close()
 
     # Desvío estándar
@@ -84,7 +89,7 @@ def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('desvio.png')
+    plt.savefig(os.path.join(output_dir, 'desvio.png'))
     plt.close()
 
     # Varianza
@@ -97,7 +102,7 @@ def mostrar_graficos(fr, vp, vd, vv, numero_elegido, tiradas_totales):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('varianza.png')
+    plt.savefig(os.path.join(output_dir, 'varianza.png'))
     plt.close()
 
     print("\nValores esperados:")
