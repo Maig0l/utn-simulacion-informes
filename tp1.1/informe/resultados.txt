@@ -1,0 +1,61 @@
+PS D:\utn\simulacion\utn-simulacion-informes\tp1.1\programa> python v2.1.py -n 50 -s m -a i -c 100 -t 1000 --tipo_apuesta color
+>> python v2.1.py -n 50 -s d -a i -c 100 -t 1000 --tipo_apuesta color
+>> python v2.1.py -n 50 -s f -a i -c 100 -t 1000 --tipo_apuesta color
+>> python v2.1.py -n 50 -s o -a i -c 100 -t 1000 --tipo_apuesta color
+>> 
+
+Estrategia: M | Capital: Infinito
+Apuesta: COLOR | Bancarrotas: 0 en 50 corridas
+
+
+Estrategia: D | Capital: Infinito
+Apuesta: COLOR | Bancarrotas: 0 en 50 corridas
+
+
+Estrategia: F | Capital: Infinito
+Apuesta: COLOR | Bancarrotas: 0 en 50 corridas
+
+
+Estrategia: O | Capital: Infinito
+Apuesta: COLOR | Bancarrotas: 0 en 50 corridas
+
+PS D:\utn\simulacion\utn-simulacion-informes\tp1.1\programa> python v2.1.py -n 50 -s m -a f -c 100 -t 500 --tipo_apuesta numero --numero 17
+>> python v2.1.py -n 50 -s d -a f -c 100 -t 500 --tipo_apuesta numero --numero 17
+>> python v2.1.py -n 50 -s f -a f -c 100 -t 500 --tipo_apuesta numero --numero 17
+>> python v2.1.py -n 50 -s o -a f -c 100 -t 500 --tipo_apuesta numero --numero 17
+>>
+
+Estrategia: M | Capital: Finito
+Apuesta: NUMERO | Bancarrotas: 50 en 50 corridas
+
+
+Estrategia: D | Capital: Finito
+Apuesta: NUMERO | Bancarrotas: 50 en 50 corridas
+
+
+Estrategia: F | Capital: Finito
+Apuesta: NUMERO | Bancarrotas: 50 en 50 corridas
+
+
+Estrategia: O | Capital: Finito
+Apuesta: NUMERO | Bancarrotas: 27 en 50 corridas
+
+PS D:\utn\simulacion\utn-simulacion-informes\tp1.1\programa> python v2.1.py -n 50 -s m -a f -c 100 -t 500 --tipo_apuesta docena --docena 2
+>> python v2.1.py -n 50 -s d -a f -c 100 -t 500 --tipo_apuesta docena --docena 2
+>> python v2.1.py -n 50 -s f -a f -c 100 -t 500 --tipo_apuesta docena --docena 2
+>> python v2.1.py -n 50 -s o -a f -c 100 -t 500 --tipo_apuesta docena --docena 2
+
+Estrategia: M | Capital: Finito
+Apuesta: DOCENA | Bancarrotas: 49 en 50 corridas
+
+
+Estrategia: D | Capital: Finito
+Apuesta: DOCENA | Bancarrotas: 50 en 50 corridas
+
+
+Estrategia: F | Capital: Finito
+Apuesta: DOCENA | Bancarrotas: 50 en 50 corridas
+
+
+Estrategia: O | Capital: Finito
+Apuesta: DOCENA | Bancarrotas: 5 en 50 corridas
