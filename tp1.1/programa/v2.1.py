@@ -1,7 +1,6 @@
 import argparse
 import random
 import matplotlib.pyplot as plt
-import os
 import numpy as np
 
 # Secuencia Fibonacci
@@ -72,7 +71,7 @@ def simular_estrategia(corridas, tiradas, capital_inicial, estrategia, capital_t
                     fib_index = max(fib_index - 2, 0)
                     apuesta = next_fibonacci(fib_index)
                 elif estrategia == 'o':
-                    apuesta = apuesta_inicial if apuesta > apuesta_inicial else apuesta * 2
+                    apuesta = apuesta * 2
             else:
                 saldo -= apuesta
                 if estrategia == 'm':
@@ -83,7 +82,7 @@ def simular_estrategia(corridas, tiradas, capital_inicial, estrategia, capital_t
                     fib_index += 1
                     apuesta = next_fibonacci(fib_index)
                 elif estrategia == 'o':
-                    apuesta = apuesta_inicial if apuesta > apuesta_inicial else apuesta * 2
+                    apuesta = apuesta
 
             historial_saldo.append(saldo)
 
@@ -96,9 +95,9 @@ def simular_estrategia(corridas, tiradas, capital_inicial, estrategia, capital_t
     return resultados, bancarrotas, frecuencia_relativa
 
 def graficar_resultados(resultados, estrategia, tipo_apuesta, capital_inicial, capital_tipo):
-    tipo_capital = 'Infinito' if capital_tipo == 'i' else 'Finito'
     max_len = max(map(len, resultados))
-    resultados_padded = [np.pad(np.array(r, dtype=float), (0, max_len - len(r)), constant_values=np.nan) for r in resultados]
+    resultados_padded = [np.pad(np.array(r, dtype=float), (0, max_len - len(r)), constant_values=0)
+    for r in resultados]
     promedio_capital = np.nanmean(resultados_padded, axis=0)
 
     plt.plot(promedio_capital, label='Promedio del saldo')
